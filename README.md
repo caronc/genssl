@@ -95,9 +95,10 @@ genssl -v
 Default Configuration
 =====================
 You can use the switches available to the tool to set some common settings, but you can also just set them in a global file that is sourced each time before the tool is ran.  This can allow you to customize the tool uniquely to your specific environment.  The following configuration files (if they exist) are sourced in the following order:
-1. /etc/genssl
-2. ~/.config/genssl
-3. ~/.genssl
+
+1. **/etc/genssl**
+2. **~/.config/genssl**
+3. **~/.genssl**
 
 ```bash
 # The country code is represented in it's 2 letter abbreviated version:
