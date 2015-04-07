@@ -76,6 +76,7 @@ GENSSL_ORG=${GENSSL_ORG:="Lannisters"}
 GENSSL_PROVSTATE=${GENSSL_PROVSTATE:="Westerlands"}
 GENSSL_LOCATION=${GENSSL_LOCATION:="Casterly Rock"}
 GENSSL_DEPT=${GENSSL_DEPT:=""}
+GENSSL_SHA=${GENSSL_SHA:="sha256"}
 
 ## 730 is (365 * 2) - 2 Years
 GENSSL_EXPIRYDAYS=${GENSSL_EXPIRYDAYS:="730"}
@@ -428,7 +429,7 @@ for DOMAIN in $DOMAINS; do
       echo_stdout "Info: Creating an Unsigned Certificate for $SSLID (expiry: $GENSSL_EXPIRYDAYS days)"
       # Create a Certificate Signing Request (CSR) with the server RSA private
       # key (output will be PEM formatted)
-      ERR=$(openssl req $PASSPHRASESWITCH -new -sha1 \
+      ERR=$(openssl req $PASSPHRASESWITCH -new -$GENSSL_SHA \
             -newkey rsa:$GENSSL_KEYSIZE \
             -keyout $SSLID.key \
             -out $SSLID.csr \
@@ -454,7 +455,7 @@ for DOMAIN in $DOMAINS; do
          exit 1
       fi
       echo_stdout "Info: Creating Self-Signed Certificate for $SSLID (expiry: $GENSSL_EXPIRYDAYS days)"
-      ERR=$(openssl req $PASSPHRASESWITCH -new -x509 -days $GENSSL_EXPIRYDAYS -sha1 \
+      ERR=$(openssl req $PASSPHRASESWITCH -new -x509 -days $GENSSL_EXPIRYDAYS -$GENSSL_SHA \
             -newkey rsa:$GENSSL_KEYSIZE \
             -keyout $SSLID.key \
             -out $SSLID.crt \
@@ -462,7 +463,7 @@ for DOMAIN in $DOMAINS; do
       RET=$?
    else
       ## Testing Key
-      ERR=$(openssl req $PASSPHRASESWITCH -x509 -new -sha1 \
+      ERR=$(openssl req $PASSPHRASESWITCH -x509 -new -$GENSSL_SHA \
             -newkey rsa:$GENSSL_KEYSIZE \
             -keyout $SSLID.key \
             -out $SSLID.crt \
