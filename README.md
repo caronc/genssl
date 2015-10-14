@@ -83,7 +83,7 @@ This tool can also be used to generate unsigned certificates so that you can eas
 genssl -r nuxref.com
 # produces the following:
 # nuxref.com.key (the private key)
-# nuxref.com.crt (the public certificate/key)
+# nuxref.com.csr (the unsigned certificate you can pass along to be signed)
 # nuxref.com.README (some useful information for admins)
 ```
 
