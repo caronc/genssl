@@ -143,12 +143,12 @@ show_syntax () {
    echo "     -c CODE"
    echo "     --countrycode=CODE  Set country code; Default is '$GENSSL_COUNTRY'"
    echo
-   echo "     -v PROVINCE"
+   echo "     -P PROVINCE"
    echo "     --province=PROVINCE Set province; Default is '$GENSSL_PROVSTATE'"
    echo "                          This is the same field as the --state (-a)"
    echo "     -a STATE"
    echo "     --state=STATE       Set state; Default is '$GENSSL_PROVSTATE'"
-   echo "                          This is the same field as the --province (-v)"
+   echo "                          This is the same field as the --province (-P)"
    echo
    echo "     -l LOCATION"
    echo "     --location=LOCATION Set location; Default is '$GENSSL_LOCATION'"
@@ -334,7 +334,7 @@ if [ ! -z "$1" ]; then
              GENSSL_COUNTRY=$(echo $1 | \
                sed -e 's/--countrycode=//g' -e "s/'//g" -e 's/\"//g') ;
                shift ;;
-         -v) GENSSL_PROVSTATE=$2 ;
+         -P) GENSSL_PROVSTATE=$2 ;
                shift; shift ;;
          --province=*)
              GENSSL_PROVSTATE=$(echo $1 | \
