@@ -32,12 +32,12 @@ Syntax: $> genssl -[s|r|t|v] [options] domain1 [domain2 [...]]
      -c CODE
      --countrycode=CODE  Set country code; Default is '7K'
 
-     -v PROVINCE
+     -P PROVINCE
      --province=PROVINCE Set province; Default is 'Westerlands'
                           This is the same field as the --state (-a)
      -a STATE
      --state=STATE       Set state; Default is 'Westerlands'
-                          This is the same field as the --province (-v)
+                          This is the same field as the --province (-P)
 
      -l LOCATION
      --location=LOCATION Set location; Default is 'Casterly Rock'
@@ -112,7 +112,7 @@ GENSSL_COUNTRY="7K"
 GENSSL_ORG="Lannisters"
 # The Province and or State you reside in
 # Defaults to "Westerlands" if none is specified. You can also override
-# this with the --state= (-a) or --province= (-v) CLI argument
+# this with the --state= (-a) or --province= (-P) CLI argument
 GENSSL_PROVSTATE="Westerlands"
 # Identify the City/Town you reside in
 # Defaults to "Casterly Rock" if none is specified. You can also override
